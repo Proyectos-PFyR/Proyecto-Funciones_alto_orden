@@ -69,25 +69,36 @@ package object ConjuntosDifusos
     fu
   }
 
-
+  /** ****************************************************************************
+   * FUNCIÓN:                inclusion
+   * DESCRIPCIÓN:            Función que devuelve un boolean indicando si el conjunto difuso cd1 esta incluido en el conjunto difuso cd2.
+   * PARÁMETROS DE ENTRADA
+   * $cd1 :                  Funcion del conjunto difuso #1.
+   * $cd2 :                  Funcion del conjunto difuso #2.
+   * RETORNO
+   * boolean :  			       True o False.
+   * **************************************************************************** */
   def inclusion(cd1: ConjDifuso, cd2: ConjDifuso): Boolean =
   {
+    //Se establece como el limite inferior del intervalo como 1.
     val inicio = 1;
+    //Se establece como el limite inferior del intervalo como 2.
     val fin = 1000;
 
     def mmi(i: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso): Boolean =
     {
+      //Si el grado de pertenencia de algun valor i no es mayor en cd1 que en cd2, la funcion retorna false.
       if(cd1(i) > cd2(i))
       {
         false
       }
       else
       {
-        if(i == f)
-        {
+        //Si el valor i es igual al limite superior entonces ya se analizaron todos los numeros en inicio y fin y no se encontro ningun grado de pertenencia que no fuera igual, por ende la funcion retorna true.
+        if (i == f) {
           true
         }
-        else
+        //Si el valor i no es igual al limite superior entonces aun quedan valores por analiza. Por ende se hace un llamado recursivo de la funcion mmi.
         {
           mmi(i + 1: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso)
         }
@@ -96,23 +107,38 @@ package object ConjuntosDifusos
     mmi(inicio, fin, cd1, cd2)
   }
 
+  /******************************************************************************
+   * FUNCIÓN:                igualdad
+   * DESCRIPCIÓN:            Función que devuelve un boolean indicando si los 2 conjuntos difusos son iguales.
+   * PARÁMETROS DE ENTRADA
+   * $cd1 :                  Funcion del conjunto difuso #1.
+   * $cd2 :                  Funcion del conjunto difuso #2.
+   * RETORNO
+   * boolean :  			       True o False.
+   * *****************************************************************************/
   def igualdad(cd1: ConjDifuso, cd2: ConjDifuso): Boolean =
   {
+    //Se establece como el limite inferior del intervalo como 1.
     val inicio = 1;
+    //Se establece como el limite inferior del intervalo como 2.
     val fin = 1000;
 
+    //Se define la funcion auxiliar mmi.
     def mmi(i: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso): Boolean =
     {
+      //Si el grado de peretnencia de algun valor i no es igual entre el cd1 y el cd2, la funcion retorna false.
       if (cd1(i) != cd2(i))
       {
         false
       }
       else
       {
+        //Si el valor i es igual al limite superior entonces ya se analizaron todos los numeros en inicio y fin y no se encontro ningun grado de pertenencia que no fuera igual, por ende la funcion retorna true.
         if (i == f)
         {
           true
         }
+        //Si el valor i no es igual al limite superior entonces aun quedan valores por analiza. Por ende se hace un llamado recursivo de la funcion mmi.
         else
         {
           mmi(i + 1: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso)
