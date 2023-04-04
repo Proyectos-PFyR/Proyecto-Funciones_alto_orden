@@ -39,6 +39,37 @@ package object ConjuntosDifusos
     mmg
   }
 
+  def complemento(cd: ConjDifuso): ConjDifuso = {
+    def fc(x: Int): Double = {
+      1 - cd(x)
+    }
+
+    fc
+  }
+
+  def union(cd1: ConjDifuso, cd2: ConjDifuso): ConjDifuso = {
+    def fu(x: Int): Double = {
+      val fs1 = cd1(x)
+      val fs2 = cd2(x)
+      if (fs1 >= fs2) fs1
+      else fs2
+    }
+
+    fu
+  }
+
+  def interseccion(cd1: ConjDifuso, cd2: ConjDifuso): ConjDifuso = {
+    def fu(x: Int): Double = {
+      val fs1 = cd1(x)
+      val fs2 = cd2(x)
+      if (fs1 > fs2) fs2
+      else fs1
+    }
+
+    fu
+  }
+
+
   def inclusion(cd1: ConjDifuso, cd2: ConjDifuso): Boolean =
   {
     val inicio = 1;
