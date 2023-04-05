@@ -1,5 +1,8 @@
 package object ConjuntosDifusos
 {
+  /******************************************************************************
+   * Funciones Entregadas por el profesor.
+   ******************************************************************************/
   type ConjDifuso = Int => Double
 
   def pertenece(x: Int, cd: ConjDifuso): Double =
@@ -19,43 +22,60 @@ package object ConjuntosDifusos
     mma
   }
 
+  def cercanosA(a: Int, k: Int): ConjDifuso =
+  {
+    def ca(x: Int): Double =
+    {
+      val q = 1.0 + k * (x - a) * (x - a)
+      1 / q
+    }
+    ca
+  }
+
+  /******************************************************************************
+   * FUNCIÓN:                grande
+   * DESCRIPCIÓN:            Función que retorna el grado de pertenencia de un numero segun lo grande que es respecto a d.
+   * PARÁMETROS DE ENTRADA
+   * $d :                    Numero mayor o igual a 1 con el cual se comparara lo grande que es el numero x.
+   * $e :                    Numero mayor a 1 con el cual se mejora la calidad del grado de pertenencia.
+   * RETORNO
+   * ConjDifuso :  			     Funcion caracteristica del conjunto difuso.
+   * *****************************************************************************/
   def grande(d: Int, e: Int): ConjDifuso =
   {
-    def mmg(x: Int): Double =
+    def auxGrande(x: Int): Double =
     {
-      if(x == x + d)
+      math.pow(x.toDouble / (x + d).toDouble, e.toDouble)
+    }
+    auxGrande
+  }
+
+  def complemento(cd: ConjDifuso): ConjDifuso =
+  {
+    def auxComplemento(x: Int): Double =
+    {
+      1 - cd(x)
+    }
+    auxComplemento
+  }
+
+  def union(cd1: ConjDifuso, cd2: ConjDifuso): ConjDifuso =
+  {
+    def auxUnion(x: Int): Double =
+    {
+      val gp1 = cd1(x)
+      val gp2 = cd2(x)
+
+      if(gp1 >= gp2)
       {
-       1.0
-      }
-      else if(x <= d)
-      {
-        0.0
+        gp1
       }
       else
       {
-        math.pow(x.toDouble / (x + d).toDouble, e.toDouble)
+        gp2
       }
     }
-    mmg
-  }
-
-  def complemento(cd: ConjDifuso): ConjDifuso = {
-    def fc(x: Int): Double = {
-      1 - cd(x)
-    }
-
-    fc
-  }
-
-  def union(cd1: ConjDifuso, cd2: ConjDifuso): ConjDifuso = {
-    def fu(x: Int): Double = {
-      val fs1 = cd1(x)
-      val fs2 = cd2(x)
-      if (fs1 >= fs2) fs1
-      else fs2
-    }
-
-    fu
+    auxUnion
   }
 
   def interseccion(cd1: ConjDifuso, cd2: ConjDifuso): ConjDifuso = {
@@ -69,7 +89,7 @@ package object ConjuntosDifusos
     fu
   }
 
-  /** ****************************************************************************
+  /******************************************************************************
    * FUNCIÓN:                inclusion
    * DESCRIPCIÓN:            Función que devuelve un boolean indicando si el conjunto difuso cd1 esta incluido en el conjunto difuso cd2.
    * PARÁMETROS DE ENTRADA
@@ -77,7 +97,7 @@ package object ConjuntosDifusos
    * $cd2 :                  Funcion del conjunto difuso #2.
    * RETORNO
    * boolean :  			       True o False.
-   * **************************************************************************** */
+   * *****************************************************************************/
   def inclusion(cd1: ConjDifuso, cd2: ConjDifuso): Boolean =
   {
     //Se establece como el limite inferior del intervalo como 1.
@@ -85,7 +105,7 @@ package object ConjuntosDifusos
     //Se establece como el limite inferior del intervalo como 2.
     val fin = 1000;
 
-    def mmi(i: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso): Boolean =
+    def auxInclusion(i: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso): Boolean =
     {
       //Si el grado de pertenencia de algun valor i no es mayor en cd1 que en cd2, la funcion retorna false.
       if(cd1(i) > cd2(i))
@@ -100,11 +120,11 @@ package object ConjuntosDifusos
         }
         //Si el valor i no es igual al limite superior entonces aun quedan valores por analiza. Por ende se hace un llamado recursivo de la funcion mmi.
         {
-          mmi(i + 1: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso)
+          auxInclusion(i + 1: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso)
         }
       }
     }
-    mmi(inicio, fin, cd1, cd2)
+    auxInclusion(inicio, fin, cd1, cd2)
   }
 
   /******************************************************************************
@@ -124,7 +144,7 @@ package object ConjuntosDifusos
     val fin = 1000;
 
     //Se define la funcion auxiliar mmi.
-    def mmi(i: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso): Boolean =
+    def auxIgualdad(i: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso): Boolean =
     {
       //Si el grado de peretnencia de algun valor i no es igual entre el cd1 y el cd2, la funcion retorna false.
       if (cd1(i) != cd2(i))
@@ -141,10 +161,10 @@ package object ConjuntosDifusos
         //Si el valor i no es igual al limite superior entonces aun quedan valores por analiza. Por ende se hace un llamado recursivo de la funcion mmi.
         else
         {
-          mmi(i + 1: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso)
+          auxIgualdad(i + 1: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso)
         }
       }
     }
-    mmi(inicio, fin, cd1, cd2)
+    auxIgualdad(inicio, fin, cd1, cd2)
   }
 }
