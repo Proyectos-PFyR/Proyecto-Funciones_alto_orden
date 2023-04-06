@@ -108,6 +108,7 @@ package object ConjuntosDifusos
     def auxInclusion(i: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso): Boolean =
     {
       //Si el grado de pertenencia de algun valor i no es mayor en cd1 que en cd2, la funcion retorna false.
+      println("CD1: " + cd1(i) + " " + "CD2: " + cd2(i))
       if(cd1(i) > cd2(i))
       {
         false
@@ -115,10 +116,12 @@ package object ConjuntosDifusos
       else
       {
         //Si el valor i es igual al limite superior entonces ya se analizaron todos los numeros en inicio y fin y no se encontro ningun grado de pertenencia que no fuera igual, por ende la funcion retorna true.
-        if (i == f) {
+        if (i == f)
+        {
           true
         }
         //Si el valor i no es igual al limite superior entonces aun quedan valores por analiza. Por ende se hace un llamado recursivo de la funcion mmi.
+        else
         {
           auxInclusion(i + 1: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso)
         }
@@ -147,6 +150,7 @@ package object ConjuntosDifusos
     def auxIgualdad(i: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso): Boolean =
     {
       //Si el grado de peretnencia de algun valor i no es igual entre el cd1 y el cd2, la funcion retorna false.
+      println("CD1: " + cd1(i) + " " + "CD2: " + cd2(i))
       if (cd1(i) != cd2(i))
       {
         false
