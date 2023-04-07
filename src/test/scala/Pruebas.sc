@@ -88,19 +88,19 @@ auxGrande5(145)
 auxGrande5(1456)
 
 /******************************************************************************
- * FUNCIÓN:                igualdad
- ******************************************************************************/
-igualdad(auxGrande1, auxGrande1)
-igualdad(auxCercano2, auxMayorQue3)
-igualdad(auxCercano3, auxGrande5)
-igualdad(auxGrande4, auxMayorQue5)
-igualdad(auxCercano3, auxMayorQue1)
-
-/******************************************************************************
  * FUNCIÓN:                inclusion
  ******************************************************************************/
 inclusion(auxGrande2, auxGrande1)
 inclusion(auxCercano2, auxMayorQue3)
 inclusion(auxCercano3, auxGrande5)
 inclusion(auxGrande4, auxMayorQue5)
-inclusion(auxCercano3, auxMayorQue1)
+inclusion(auxMayorQue1, auxCercano5)
+
+/******************************************************************************
+ * FUNCIÓN:                igualdad
+ ******************************************************************************/
+igualdad(auxGrande1, auxGrande1)
+igualdad(auxGrande3, auxCercano1)
+igualdad(auxCercano4, auxMayorQue2)
+igualdad(auxMayorQue4, auxGrande1)
+igualdad(auxMayorQue1, auxMayorQue5)
