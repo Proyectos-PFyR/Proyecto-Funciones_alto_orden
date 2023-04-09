@@ -50,6 +50,14 @@ package object ConjuntosDifusos
     auxGrande
   }
 
+  /** ****************************************************************************
+   * FUNCIÓN:                complemento
+   * DESCRIPCIÓN:            Función que retorna el grado de no pertenencia de un elemento al conjunto de Entrada
+   * PARÁMETROS DE ENTRADA
+   * $cd1:                  Funcion del conjunto difuso #1.
+   * RETORNO
+   * ConjDifuso:  			     El complemento del primer conjunto.
+   * **************************************************************************** */
   def complemento(cd: ConjDifuso): ConjDifuso =
   {
     def auxComplemento(x: Int): Double =
@@ -59,6 +67,15 @@ package object ConjuntosDifusos
     auxComplemento
   }
 
+  /** ****************************************************************************
+   * FUNCIÓN:                union
+   * DESCRIPCIÓN:            Función que retorna el grado de mayor pertenencia de un elemento entre los dos conjuntos
+   * PARÁMETROS DE ENTRADA
+   * $cd1:                  Funcion del conjunto difuso #1.
+   * $cd2:                  Funcion del conjunto difuso #2.
+   * RETORNO
+   * ConjDifuso:  			     La union de ambos conjuntos
+   * **************************************************************************** */
   def union(cd1: ConjDifuso, cd2: ConjDifuso): ConjDifuso =
   {
     def auxUnion(x: Int): Double =
@@ -78,6 +95,15 @@ package object ConjuntosDifusos
     auxUnion
   }
 
+  /** ****************************************************************************
+   * FUNCIÓN:                interseccion
+   * DESCRIPCIÓN:            Función que retorna el grado de menor pertenencia de un elemento entre los dos conjuntos
+   * PARÁMETROS DE ENTRADA
+   * $cd1:                  Funcion del conjunto difuso #1.
+   * $cd2:                  Funcion del conjunto difuso #2.
+   * RETORNO
+   * ConjDifuso:  			     La interseccion de ambos conjuntos
+   * **************************************************************************** */
   def interseccion(cd1: ConjDifuso, cd2: ConjDifuso): ConjDifuso = {
     def fu(x: Int): Double = {
       val fs1 = cd1(x)

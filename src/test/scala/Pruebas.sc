@@ -86,6 +86,52 @@ auxGrande4(100)
 auxGrande5(14)
 auxGrande5(145)
 auxGrande5(1456)
+/******************************************************************************
+ * FUNCIÓN:                complemento
+ ******************************************************************************/
+
+val auxComplemento1 = complemento(auxMayorQue3)
+auxComplemento1(4)
+auxComplemento1(50)
+auxComplemento1(110)
+
+val auxComplemento2 = complemento(auxCercano2)
+auxComplemento2(9)
+auxComplemento2(7)
+auxComplemento2(50)
+
+val auxComplemento3 = complemento(auxGrande4)
+auxComplemento2(20)
+auxComplemento2(50)
+auxComplemento2(110)
+
+/******************************************************************************
+ * FUNCIÓN:                union
+ ******************************************************************************/
+
+val auxUnion1 = union(auxMayorQue1, auxMayorQue2)
+auxUnion1(2)
+auxUnion1(1)
+auxUnion1(16)
+
+val auxUnion2 = union(auxMayorQue2, auxGrande1)
+auxUnion2(100)
+auxUnion2(14)
+auxUnion2(46)
+
+/******************************************************************************
+ * FUNCIÓN:                interseccion
+ ******************************************************************************/
+
+val auxInterseccion1 = union(auxMayorQue1, auxMayorQue2)
+auxInterseccion1(2)
+auxInterseccion1(1)
+auxInterseccion1(16)
+
+val auxInterseccion2 = union(auxMayorQue2, auxGrande1)
+auxInterseccion2(100)
+auxInterseccion2(14)
+auxInterseccion2(46)
 
 /******************************************************************************
  * FUNCIÓN:                inclusion
