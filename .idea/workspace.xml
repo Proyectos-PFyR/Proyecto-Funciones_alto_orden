@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de807161-84f7-4efa-9752-08e90690f1f3" name="Changes" comment="Commit 5">
+    <list default="true" id="de807161-84f7-4efa-9752-08e90690f1f3" name="Changes" comment="Commit 6">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/scala/Pruebas.sc" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/Pruebas.sc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/ConjuntosDifusos/package.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/ConjuntosDifusos/package.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +59,11 @@
       <workItem from="1680311883848" duration="1000" />
       <workItem from="1680626340021" duration="17934000" />
       <workItem from="1680710587073" duration="19222000" />
-      <workItem from="1680838015130" duration="5407000" />
+      <workItem from="1680838015130" duration="5441000" />
+      <workItem from="1680999628253" duration="1258000" />
+      <workItem from="1681067790782" duration="2452000" />
+      <workItem from="1681162561127" duration="616000" />
+      <workItem from="1681257179519" duration="6504000" />
     </task>
     <task id="LOCAL-00001" summary="Commit 2">
       <created>1680639352637</created>
@@ -89,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680746366330</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Commit 6">
+      <created>1680843693731</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1680843693731</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +111,7 @@
     <MESSAGE value="Commit 3" />
     <MESSAGE value="Commit 4" />
     <MESSAGE value="Commit 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit 5" />
+    <MESSAGE value="Commit 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit 6" />
   </component>
 </project>

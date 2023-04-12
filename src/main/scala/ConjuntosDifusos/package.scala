@@ -124,37 +124,32 @@ package object ConjuntosDifusos
    * RETORNO
    * boolean :  			       True o False.
    * *****************************************************************************/
-  def inclusion(cd1: ConjDifuso, cd2: ConjDifuso): Boolean =
-  {
+  def inclusion(cd1: ConjDifuso, cd2: ConjDifuso): Boolean = {
     //Se establece como el limite inferior del intervalo como 1.
-    val inicio = 1;
+    val inicio = 1
     //Se establece como el limite inferior del intervalo como 2.
-    val fin = 1000;
+    val fin = 1000
 
-    def auxInclusion(i: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso): Boolean =
-    {
-      //Si el grado de pertenencia de algun valor i no es mayor en cd1 que en cd2, la funcion retorna false.
-      println("CD1: " + cd1(i) + " " + "CD2: " + cd2(i))
-      if(cd1(i) > cd2(i))
+    //Se define la funcion auxiliar auxInclusion.
+    def auxInclusion(i: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso): Boolean = {
+      //Si el valor i es igual al limite superior entonces ya se analizaron todos los numeros en inicio y fin y solo queda por analizar el caso i == f.
+      //Si el grado de pertenencia de algun valor i es mayor en cd1 que en cd2.
+      //Por ende la funcion retorna cd1(i) <= cd2(i).
+      if (i == f || cd1(i) > cd2(i))
       {
-        false
+        cd1(i) <= cd2(i)
       }
+      //Si el valor i no es igual al limite superior y el grado de pertenencia de i es menor o igual en cd1 que en cd2, entonces aun quedan valores por analizar .
+      //Por ende se hace un llamado recursivo de la funcion auxInclusion.
       else
       {
-        //Si el valor i es igual al limite superior entonces ya se analizaron todos los numeros en inicio y fin y no se encontro ningun grado de pertenencia que no fuera igual, por ende la funcion retorna true.
-        if (i == f)
-        {
-          true
-        }
-        //Si el valor i no es igual al limite superior entonces aun quedan valores por analiza. Por ende se hace un llamado recursivo de la funcion mmi.
-        else
-        {
-          auxInclusion(i + 1: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso)
-        }
+        auxInclusion(i + 1: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso)
       }
     }
     auxInclusion(inicio, fin, cd1, cd2)
   }
+
+
 
   /******************************************************************************
    * FUNCIÓN:                igualdad
@@ -168,31 +163,25 @@ package object ConjuntosDifusos
   def igualdad(cd1: ConjDifuso, cd2: ConjDifuso): Boolean =
   {
     //Se establece como el limite inferior del intervalo como 1.
-    val inicio = 1;
+    val inicio = 1
     //Se establece como el limite inferior del intervalo como 2.
-    val fin = 1000;
+    val fin = 1000
 
-    //Se define la funcion auxiliar mmi.
+    //Se define la funcion auxiliar auxIgualdad.
     def auxIgualdad(i: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso): Boolean =
     {
-      //Si el grado de peretnencia de algun valor i no es igual entre el cd1 y el cd2, la funcion retorna false.
-      println("CD1: " + cd1(i) + " " + "CD2: " + cd2(i))
-      if (cd1(i) != cd2(i))
+      //Si el valor i es igual al limite superior entonces ya se analizaron todos los numeros en inicio y fin y solo queda por analizar el caso i == f.
+      //Si el grado de pertenencia de algun valor i es diferente en cd1 que en cd2.
+      //Por ende la funcion retorna cd1(i) == cd2(i).
+      if (i == f || cd1(i) != cd2(i))
       {
-        false
+        cd1(i) == cd2(i)
       }
+      //Si el valor i no es igual al limite superior y el grado de pertenencia de i es gual en cd1 que en cd2, entonces aun quedan valores por analizar .
+      //Por ende se hace un llamado recursivo de la funcion auxIgualdad.
       else
       {
-        //Si el valor i es igual al limite superior entonces ya se analizaron todos los numeros en inicio y fin y no se encontro ningun grado de pertenencia que no fuera igual, por ende la funcion retorna true.
-        if (i == f)
-        {
-          true
-        }
-        //Si el valor i no es igual al limite superior entonces aun quedan valores por analiza. Por ende se hace un llamado recursivo de la funcion mmi.
-        else
-        {
-          auxIgualdad(i + 1: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso)
-        }
+        auxIgualdad(i + 1: Int, f: Int, cd1: ConjDifuso, cd2: ConjDifuso)
       }
     }
     auxIgualdad(inicio, fin, cd1, cd2)
